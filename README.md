@@ -1,10 +1,10 @@
 # BAKU
 
-![](./Assets/Baku.png | width=100)
+<img src="./Assets/Baku.png" width="128">
 
 High-performance [grasshopper]() plugin for simulating large number of particles using GPU acceleration.
 
-![](./Assets/baku-demo.mp4)
+https://github.com/sean1832/BAKU/assets/84948038/cfbe96dc-1123-4166-9b2b-6fdd2d1d861b
 
 ---
 
