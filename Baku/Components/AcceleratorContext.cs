@@ -70,6 +70,8 @@ namespace Baku.Components
                     }
                 }
 
+                Message = devicesName[deviceIndex];
+
                 DA.SetDataList(0, devicesName);
                 DA.SetData(1, new AcceleratorGoo(new AcceleratorIndex(deviceIndex, device)));
             }
