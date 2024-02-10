@@ -2,7 +2,7 @@
 	
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <Version>0.0.1.0</Version>
+    <Version>0.0.1.1</Version>
     <Title>Baku</Title>
     <Description>High-performance simulation tool suits</Description>
     <TargetExt>.gha</TargetExt>
