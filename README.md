@@ -45,4 +45,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICE
 
 ### 🤝 Contribution
 
-Contributions are welcome! Please read the [contribution guidelines](./CONTRIBUTING.md) first.
+Contributions are welcome! Please follow standard contribution guidelines.
