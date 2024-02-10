@@ -2,7 +2,7 @@
 
 <img src="./Assets/Baku.png" width="128">
 
-High-performance [grasshopper](https://en.wikipedia.org/wiki/Grasshopper_3D) plugin for simulating large number of particles using GPU acceleration.
+High-performance [Grasshopper 3D](https://en.wikipedia.org/wiki/Grasshopper_3D) plugin for simulating large number of particles using GPU acceleration.
 
 https://github.com/sean1832/BAKU/assets/84948038/936c1b54-7e87-435c-8584-fc7941c79c6e
 
@@ -10,7 +10,7 @@ https://github.com/sean1832/BAKU/assets/84948038/936c1b54-7e87-435c-8584-fc7941c
 
 _⭐ If you like this project, please consider giving it a star!_
 
-_💡 This project is early in development. If you encounter any issues, please report them in the [issues section]()._
+_💡 This project is early in development. If you encounter any issues, please report them in the [issues section](https://github.com/sean1832/BAKU/issues)._
 
 ---
 
