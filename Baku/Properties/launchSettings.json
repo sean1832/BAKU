@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Rhino 7": {
+      "commandName": "Executable",
+      "executablePath": "D:\\design\\rhino3d\\rhino7\\System\\Rhino.exe",
+      "commandLineArgs": "/nosplash /runscript=\"_-RunScript (\r\nCall Rhino.GetPlugInObject(\"\"Grasshopper\"\").OpenDocument(\"\"F:\\projects\\Baku\\Examples\\BakuDebug.gh\"\")\r\n)\""
+    }
+  }
+}
