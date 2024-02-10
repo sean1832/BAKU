@@ -2,12 +2,9 @@
 
 <img src="./Assets/Baku.png" width="128">
 
-High-performance [grasshopper]() plugin for simulating large number of particles using GPU acceleration.
-
+High-performance [grasshopper](https://en.wikipedia.org/wiki/Grasshopper_3D) plugin for simulating large number of particles using GPU acceleration.
 
 https://github.com/sean1832/BAKU/assets/84948038/936c1b54-7e87-435c-8584-fc7941c79c6e
-
-
 
 ---
 
@@ -19,10 +16,10 @@ _💡 This project is early in development. If you encounter any issues, please 
 
 ### 🌟 Features
 
-- Real-time simulation of large number of particles
+- Real-time simulation of large number of particles with [Boids algorithm](https://en.wikipedia.org/wiki/Boids)
   - 10k particles in real-time on a RTX 4090
   - Currently unoptimized, expect better performance in future releases.
-- GPU accelerated using [ILGPU]()
+- GPU accelerated using [ILGPU](https://github.com/m4rs-mt/ILGPU)
   - Up to 100x faster than CPU
   - Supports CUDA and OpenCL
   - Supports CPU fallback
@@ -37,7 +34,7 @@ _💡 This project is early in development. If you encounter any issues, please 
 
 ### 🖥️ Installation
 
-- Download the latest release from the [releases page]().
+- Download the latest release from the [releases page](https://github.com/sean1832/baku/releases/latest).
 - Unzip the file under the Grasshopper Libraries folder.
 - Unblock the DLLs by right-clicking on the files, selecting properties, and clicking the `Unblock` button.
 - Restart Rhino and Grasshopper.
