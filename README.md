@@ -40,6 +40,7 @@ _💡 This project is early in development. If you encounter any issues, please 
 - Unblock the DLLs by right-clicking on the files, selecting properties, and clicking the `Unblock` button.
 - Restart Rhino and Grasshopper.
 
+
 ### 📜 License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details.
@@ -47,3 +48,8 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICE
 ### 🤝 Contribution
 
 Contributions are welcome! Please follow standard contribution guidelines.
+
+
+### 🔗 References
+
+- [Coding Adventure: Boids](https://www.youtube.com/watch?v=bqtqltqcQhw&ab_channel=SebastianLague)
