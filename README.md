@@ -18,7 +18,7 @@ _💡 This project is early in development. If you encounter any issues, please 
 
 - Real-time simulation of large number of particles with [Boids algorithm](https://en.wikipedia.org/wiki/Boids)
   - 10k particles in real-time on a RTX 4090
-  - Currently unoptimized, expect better performance in future releases.
+  - Currently unoptimized (looping all the boids positions), expect better performance in future releases.
 - GPU accelerated using [ILGPU](https://github.com/m4rs-mt/ILGPU)
   - Up to 100x faster than CPU
   - Supports CUDA and OpenCL
@@ -28,6 +28,7 @@ _💡 This project is early in development. If you encounter any issues, please 
 
 ### 📝 Planned Features
 
+- Spatial Hashing algorithm for performance improvement.
 - Attractor and repeller points
 - Obstacle avoidance
 - Boundary repulsion (currently particles are confined to a box)
