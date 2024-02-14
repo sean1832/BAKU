@@ -94,6 +94,13 @@ namespace BakuCore.Algorithm
             return new Vector3();
         }
 
+        private static bool IsWithinFov(Agent agent, Agent target)
+        {
+            Vector3 toTarget = Vector3.Normalize(target.Position - agent.Position);
+            float angleToTarget = Vector3.Dot(agent.Velocity, toTarget);
+            return angleToTarget <= agent.Fov / 2; // fov is centered around agent's velocity direction
+        }
+
         public static Vector3 ComputeBoundary(Index1D index, ArrayView<Agent> agents, float tolerance)
         {
             Agent agent = agents[index];
@@ -105,13 +112,6 @@ namespace BakuCore.Algorithm
             };
 
             return force * agent.BoundaryWeight;
-        }
-
-        private static bool IsWithinFov(Agent agent, Agent target)
-        {
-            Vector3 toTarget = Vector3.Normalize(target.Position - agent.Position);
-            float angleToTarget = Vector3.Dot(agent.Velocity, toTarget);
-            return angleToTarget <= agent.Fov / 2; // fov is centered around agent's velocity direction
         }
 
         private static float CalculateDimensionForce(float position, float min, float max, float tolerance)
