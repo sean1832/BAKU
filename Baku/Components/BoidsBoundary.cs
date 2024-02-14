@@ -13,8 +13,8 @@ namespace Baku.Components
         #region Metadata
 
         public BoidsBoundary()
-            : base("BoidsBoundary", "Nickname",
-                "Description",
+            : base("BoidsBoundary", "Boundary",
+                "Controls boids boundary repulsion force.",
                 Config.Category, Config.SubCategory.Behaviour)
         {
         }
@@ -32,7 +32,7 @@ namespace Baku.Components
         {
             pManager.AddBoxParameter("BoundingBox", "BBox", "Defines the maximum volume within which agents can operate, constraining their movement to this 3D space.", GH_ParamAccess.item);
             pManager.AddNumberParameter("Weight", "W", "Defines the weight of the boundary, influencing how much agents are affected by the boundary.", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("Exponent", "E", "Defines the gradient force of the boundary, 1 being linear and 2 being quadratic.", GH_ParamAccess.item, 2);
+            pManager.AddNumberParameter("Exponent", "^x", "Defines the gradient force of the boundary, 1 being linear and 2 being quadratic.", GH_ParamAccess.item, 2);
             pManager.AddNumberParameter("Range", "R", "Defines the range of the boundary, influencing how far agents are affected by the boundary.", GH_ParamAccess.item, 1);
         }
 
