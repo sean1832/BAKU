@@ -29,7 +29,11 @@ _💡 This project is early in development. If you encounter any issues, please 
 ### 📝 Planned Features
 
 - [ ] Spatial Hashing algorithm for performance improvement.
+<<<<<<< HEAD
 - [ ] Attractor and repeller points
+=======
+- [ ]Attractor and repeller points
+>>>>>>> 8700179f69d23692c6acd642ed5d68322bf1fa2b
 - [ ] Obstacle avoidance
 - [x] ~~Boundary repulsion (currently particles are confined to a box)~~
   - Boundary repulsion is implemented since [v0.1.0](https://github.com/sean1832/BAKU/releases/tag/0.1.0).
