@@ -1,5 +1,6 @@
 ﻿using BakuCore.Types;
 using ILGPU;
+using System;
 
 namespace BakuCore.Algorithm
 {
@@ -94,19 +95,6 @@ namespace BakuCore.Algorithm
             return new Vector3();
         }
 
-        public static Vector3 ComputeBoundary(Index1D index, ArrayView<Agent> agents, float tolerance)
-        {
-            Agent agent = agents[index];
-            Vector3 force = new Vector3
-            {
-                X = CalculateDimensionForce(agent.Position.X, agent.BoundingBox.Min.X, agent.BoundingBox.Max.X, tolerance),
-                Y = CalculateDimensionForce(agent.Position.Y, agent.BoundingBox.Min.Y, agent.BoundingBox.Max.Y, tolerance),
-                Z = CalculateDimensionForce(agent.Position.Z, agent.BoundingBox.Min.Z, agent.BoundingBox.Max.Z, tolerance)
-            };
-
-            return force * agent.BoundaryWeight;
-        }
-
         private static bool IsWithinFov(Agent agent, Agent target)
         {
             Vector3 toTarget = Vector3.Normalize(target.Position - agent.Position);
@@ -114,17 +102,70 @@ namespace BakuCore.Algorithm
             return angleToTarget <= agent.Fov / 2; // fov is centered around agent's velocity direction
         }
 
-        private static float CalculateDimensionForce(float position, float min, float max, float tolerance)
+        public static Vector3 ComputeBoundary(Index1D index, ArrayView<Agent> agents)
         {
-            if (position < min + tolerance)
+            Agent agent = agents[index];
+            Vector3 force = new Vector3
             {
-                return (min + tolerance - position) / tolerance;
-            }
-            else if (position > max - tolerance)
+                X = CalculateAxisForce(agent.Position.X, agent.BoundingBox.Min.X, agent.BoundingBox.Max.X, agent.BoundaryRadius, agent.BoundaryExponent),
+                Y = CalculateAxisForce(agent.Position.Y, agent.BoundingBox.Min.Y, agent.BoundingBox.Max.Y, agent.BoundaryRadius, agent.BoundaryExponent),
+                Z = CalculateAxisForce(agent.Position.Z, agent.BoundingBox.Min.Z, agent.BoundingBox.Max.Z, agent.BoundaryRadius, agent.BoundaryExponent)
+            };
+
+            return force * agent.BoundaryWeight;
+        }
+
+        private static float CalculateAxisForce(float position, float min, float max, float boundaryRange, float exponentialFactor = 1.0f)
+        {
+            // Calculate the distance from each boundary
+            float distanceToMin = position - min;
+            float distanceToMax = max - position;
+
+            // Normalize the distance to the boundaryRange
+            float normalizedDistanceToMin = distanceToMin / boundaryRange;
+            float normalizedDistanceToMax = distanceToMax / boundaryRange;
+
+            // Apply an exponential function to increase the force sharply as the agent approaches the boundary
+            if (distanceToMin < boundaryRange)
             {
-                return -(position - (max - tolerance)) / tolerance;
+                // The force increases exponentially as the agent gets closer to the min boundary
+                return (float)Pow(1 - normalizedDistanceToMin, exponentialFactor, boundaryRange);
+                //return (float)(1 - normalizedDistanceToMin);
             }
+            else if (distanceToMax < boundaryRange)
+            {
+                // The force increases exponentially as the agent gets closer to the max boundary
+                return -(float)Pow(1 - normalizedDistanceToMax, exponentialFactor, boundaryRange);
+                //return (float)-(1 - normalizedDistanceToMax);
+            }
+
+            // No force applied if not within boundaryRange of either boundary
             return 0;
+        }
+
+        private static float Pow(float baseValue, float exponent, float tolerance = 0.001f)
+        {
+            if (Math.Abs(exponent - 1.0f) < tolerance)
+            {
+                // If the exponent is 1, the result is the base itself.
+                return baseValue;
+            }
+
+            float result = 1.0f;
+            for (int i = 0; i < (int)exponent; i++)
+            {
+                result *= baseValue;
+            }
+
+            // Simplified adjustment for non-integer exponents.
+            if (exponent > (int)exponent)
+            {
+                float fractionalPart = exponent - (int)exponent;
+                float partialResult = 1.0f + (baseValue - 1.0f) * fractionalPart; // This is a very basic approximation.
+                result *= partialResult;
+            }
+
+            return result;
         }
     }
 }

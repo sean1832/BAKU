@@ -11,14 +11,14 @@ namespace Baku.Components
         #region Metadata
 
         public BoidsSeparation()
-            : base("BoidsSeparation", "Separation",
+            : base("Boids Separation", "Separation",
                 "Description",
                 Config.Category, Config.SubCategory.Behaviour)
         {
         }
 
         public override GH_Exposure Exposure => GH_Exposure.primary;
-        public override IEnumerable<string> Keywords => new string[] { };
+        public override IEnumerable<string> Keywords => new string[] { "separation", "boids" };
         protected override Bitmap Icon => Icons.BoidsSeparation;
         public override Guid ComponentGuid => new Guid("cae77c87-6114-457e-ac50-c447007cdb94");
 
@@ -28,8 +28,8 @@ namespace Baku.Components
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("SeparationRange", "Range", "Range of separation", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("SeparationWeight", "Weight", "Weight of separation", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Range", "R", "Range of separation", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Weight", "W", "Weight of separation", GH_ParamAccess.item, 1);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)

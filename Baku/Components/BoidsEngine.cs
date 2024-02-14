@@ -24,7 +24,7 @@ namespace Baku.Components
         }
 
         public override GH_Exposure Exposure => GH_Exposure.primary;
-        public override IEnumerable<string> Keywords => new string[] { };
+        public override IEnumerable<string> Keywords => new string[] { "boids", "engine" };
         protected override Bitmap Icon => Icons.BoidsEngine;
         public override Guid ComponentGuid => new Guid("67098345-189f-4279-9227-78c9c531c904");
 

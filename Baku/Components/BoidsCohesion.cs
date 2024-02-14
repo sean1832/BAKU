@@ -11,7 +11,7 @@ namespace Baku.Components
         #region Metadata
 
         public BoidsCohesion()
-            : base("BoidsCohesion", "Cohesion",
+            : base("Boids Cohesion", "Cohesion",
                 "Manages cohesive behavior, drawing Boids towards the average position of neighbors for group integrity.",
                 Config.Category, Config.SubCategory.Behaviour)
         {
@@ -28,8 +28,8 @@ namespace Baku.Components
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("CohesionRange", "Range", "Defines how far an agent checks for neighbors to calculate the average position for cohesion.", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("CohesionWeight", "Weight", "Defines the strength of the pull towards the group's average position.", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Range", "R", "Defines how far an agent checks for neighbors to calculate the average position for cohesion.", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Weight", "W", "Defines the strength of the pull towards the group's average position.", GH_ParamAccess.item, 1);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
