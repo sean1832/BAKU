@@ -28,10 +28,11 @@ _💡 This project is early in development. If you encounter any issues, please 
 
 ### 📝 Planned Features
 
-- Spatial Hashing algorithm for performance improvement.
-- Attractor and repeller points
-- Obstacle avoidance
-- Boundary repulsion (currently particles are confined to a box)
+- [ ] Spatial Hashing algorithm for performance improvement.
+- [ ] Attractor and repeller points
+- [ ] Obstacle avoidance
+- [x] ~~Boundary repulsion (currently particles are confined to a box)~~
+  - Boundary repulsion is implemented since [v0.1.0](https://github.com/sean1832/BAKU/releases/tag/0.1.0).
 
 ### 🖥️ Installation
 
@@ -40,7 +41,6 @@ _💡 This project is early in development. If you encounter any issues, please 
 - Unblock the DLLs by right-clicking on the files, selecting properties, and clicking the `Unblock` button.
 - Restart Rhino and Grasshopper.
 
-
 ### 📜 License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details.
@@ -48,7 +48,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICE
 ### 🤝 Contribution
 
 Contributions are welcome! Please follow standard contribution guidelines.
-
 
 ### 🔗 References
 
