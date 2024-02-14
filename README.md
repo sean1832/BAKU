@@ -4,11 +4,7 @@
 
 High-performance [Grasshopper 3D](https://en.wikipedia.org/wiki/Grasshopper_3D) plugin for simulating large number of particles using GPU acceleration.
 
-
-
 https://github.com/sean1832/BAKU/assets/84948038/76c82da5-2e2c-4e4c-8fe3-5b9f15feda8f
-
-
 
 ---
 
@@ -17,6 +13,10 @@ _⭐ If you like this project, please consider giving it a star!_
 _💡 This project is early in development. If you encounter any issues, please report them in the [issues section](https://github.com/sean1832/BAKU/issues)._
 
 ---
+
+### 📘 About
+
+This project started as a personal experiment to learn about GPU programming and high-performance computing. The goal is to create a high-performance particle simulation plugin for Grasshopper 3D using GPU acceleration. The project is named after the Japanese mythical creature [Baku](<https://en.wikipedia.org/wiki/Baku_(spirit)>) which is said to consume nightmares.
 
 ### 🌟 Features
 
