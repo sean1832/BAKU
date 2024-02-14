@@ -11,7 +11,7 @@ namespace Baku.Components
         #region Metadata
 
         public BoidsAvoidance()
-            : base("BoidsAvoidance", "Avoidance",
+            : base("Boids Avoidance", "Avoidance",
                 "Description",
                 Config.Category, Config.SubCategory.Behaviour)
         {
@@ -28,9 +28,9 @@ namespace Baku.Components
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("AvoidanceRange", "Range", "Range of self avoidance",
+            pManager.AddNumberParameter("Range", "R", "Range of self avoidance",
                 GH_ParamAccess.item, 0.01);
-            pManager.AddNumberParameter("AvoidanceWeight", "Weight", "Weight of self avoidance", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Weight", "W", "Weight of self avoidance", GH_ParamAccess.item, 1);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)

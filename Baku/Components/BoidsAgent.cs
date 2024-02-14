@@ -18,7 +18,7 @@ namespace Baku.Components
         #region Metadata
 
         public BoidsAgent()
-            : base("ConstructAgent", "Agent",
+            : base("Construct Agent", "Agent",
                 "Constructs a Boids agent to simulate flocking behavior in a 3D environment. " +
                 "Agents follow simple rules to exhibit complex swarm behavior, such as separation, " +
                 "alignment, and cohesion within a defined boundary.",

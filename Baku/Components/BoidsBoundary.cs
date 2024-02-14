@@ -13,14 +13,14 @@ namespace Baku.Components
         #region Metadata
 
         public BoidsBoundary()
-            : base("BoidsBoundary", "Boundary",
+            : base("Boids Boundary", "Boundary",
                 "Controls boids boundary repulsion force.",
                 Config.Category, Config.SubCategory.Behaviour)
         {
         }
 
         public override GH_Exposure Exposure => GH_Exposure.primary;
-        public override IEnumerable<string> Keywords => new string[] { };
+        public override IEnumerable<string> Keywords => new string[] { "boundary", "boids" };
         protected override Bitmap Icon => Icons.BoidsBoundary;
         public override Guid ComponentGuid => new Guid("cd5e2237-dd21-426c-ac57-68eb87fdb3a9");
 

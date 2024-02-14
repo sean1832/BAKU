@@ -12,14 +12,14 @@ namespace Baku.Components
         #region Metadata
 
         public AcceleratorContext()
-            : base("AcceleratorContext", "Accelerator",
+            : base("Accelerator Context", "Accelerator",
                 "Defines accelerator context",
                 Config.Category, Config.SubCategory.Utils)
         {
         }
 
         public override GH_Exposure Exposure => GH_Exposure.primary;
-        public override IEnumerable<string> Keywords => new string[] { };
+        public override IEnumerable<string> Keywords => new string[] { "Accelerator" };
         protected override Bitmap Icon => Icons.DeviceContext;
         public override Guid ComponentGuid => new Guid("1b368c66-01e7-44fe-9dab-c8e43da0cdc0");
 

@@ -13,7 +13,7 @@ namespace Baku.Components
         #region Metadata
 
         public AgentTrails()
-            : base("AgentTrails", "Trails",
+            : base("Agent Trails", "Trails",
                 "Draw agent trails. (This component might be slow for large data)",
                 Config.Category, Config.SubCategory.Agent)
         {
@@ -31,7 +31,7 @@ namespace Baku.Components
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
             pManager.AddPointParameter("AgentPositions", "Pos", "Current positions of agents", GH_ParamAccess.list);
-            pManager.AddBooleanParameter("Reset", "R", "Reset trails", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Reset", "Reset", "Reset trails", GH_ParamAccess.item, false);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)

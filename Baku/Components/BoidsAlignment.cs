@@ -11,7 +11,7 @@ namespace Baku.Components
         #region Metadata
 
         public BoidsAlignment()
-            : base("BoidsAlignment", "Alignment",
+            : base("Boids Alignment", "Alignment",
                 "Controls Boids alignment for cohesive flock movement, influencing directionality based on nearby agents. ",
                 Config.Category, Config.SubCategory.Behaviour)
         {
@@ -28,8 +28,8 @@ namespace Baku.Components
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("AlignmentRange", "Range", "Distance for agent alignment consideration.", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("AlignmentWeight", "Weight", "Influence scalar of alignment on movement.", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Range", "R", "Distance for agent alignment consideration.", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Weight", "W", "Influence scalar of alignment on movement.", GH_ParamAccess.item, 1);
         
         }
 
