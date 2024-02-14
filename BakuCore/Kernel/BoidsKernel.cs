@@ -16,7 +16,7 @@ namespace BakuCore.Kernel
             Vector3 separationForce = BoidsBehaviour.ComputeSeparation(index, agents);
             Vector3 alignmentForce = BoidsBehaviour.ComputeAlignment(index, agents);
             Vector3 cohesionForce = BoidsBehaviour.ComputeCohesion(index, agents);
-            Vector3 boundaryForce = BoidsBehaviour.ComputeBoundary(index, agents, 0.001f);
+            Vector3 boundaryForce = BoidsBehaviour.ComputeBoundary(index, agents);
 
             Vector3 acceleration = separationForce + alignmentForce + cohesionForce + boundaryForce;
             agents[index].Velocity += acceleration * timestep;

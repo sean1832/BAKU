@@ -4,8 +4,12 @@
     {
         public Vector3 Position { get; set; }
         public Vector3 Velocity { get; set; }
+        
+        // bounding box
         public MBoundingBox BoundingBox { get; set; }
         public float BoundaryWeight { get; set; }
+        public float BoundaryRadius { get; set; }
+        public float BoundaryExponent { get; set; }
 
         // field of view
         public float Fov { get; set; }

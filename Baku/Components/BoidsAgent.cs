@@ -4,6 +4,7 @@ using System.Drawing;
 using Baku.Params.BoidsAgent;
 using Baku.Params.BoidsAlignment;
 using Baku.Params.BoidsAvoidance;
+using Baku.Params.BoidsBoundary;
 using Baku.Params.BoidsCohesion;
 using Baku.Params.BoidsSeparation;
 using BakuCore.Types;
@@ -37,12 +38,12 @@ namespace Baku.Components
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
             pManager.AddPointParameter("Points", "Pt", "Starting points for agents.", GH_ParamAccess.list);
-            pManager.AddBoxParameter("BoundingBox", "BBox", "Defines the maximum volume within which agents can operate, constraining their movement to this 3D space.", GH_ParamAccess.item);
             pManager.AddNumberParameter("Max speed", "MxS", "Specifies the maximum speed at which an agent can move, influencing how fast agents can respond to their environment.", GH_ParamAccess.item, 1);
             pManager.AddNumberParameter("Field of view", "Fov", "Determines the field of view for each agent in degrees, affecting how agents perceive their surroundings.", GH_ParamAccess.item, 360);
             pManager.AddParameter(new BoidsSeparationParam(), "Separation", "Sep", "Defines the minimum distance agents try to maintain from each other to avoid crowding.", GH_ParamAccess.item);
             pManager.AddParameter(new BoidsCohesionParam(), "Cohesion", "Coh", "Defines the range within which agents attempt to move closer to form a group.", GH_ParamAccess.item);
             pManager.AddParameter(new BoidsAlignmentParam(), "Alignment", "Ali", "Defines the force to which an agent aligns its direction with that of nearby agents.", GH_ParamAccess.item);
+            pManager.AddParameter(new BoidsBoundaryParam(), "Boundary", "B", "Defines the maximum volume within which agents can operate, constraining their movement to this 3D space.", GH_ParamAccess.item);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -54,23 +55,26 @@ namespace Baku.Components
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            var tempBox = new Box().BoundingBox;
+
             var points = new List<Point3d>();
-            var box = new Box();
             double maxSpeed = 1.0;
             double fov = 360.0;
             var separation = new BoidsSeparationGoo(new BoidsSeparationItem(1, 1));
             var cohesion = new BoidsCohesionGoo(new BoidsCohesionItem(1, 1));
             var alignment = new BoidsAlignmentGoo(new BoidsAlignmentItem(1, 1));
+            var bounds = new BoidsBoundaryGoo(new BoidsBoundaryItem(tempBox, 1, 2, 0.1f));
 
             if (!DA.GetDataList(0, points)) return;
-            if (!DA.GetData(1, ref box)) return;
-            if (!DA.GetData(2, ref maxSpeed)) return;
-            if (!DA.GetData(3, ref fov)) return;
-            if (!DA.GetData(4, ref separation)) return;
-            if (!DA.GetData(5, ref cohesion)) return;
-            if (!DA.GetData(6, ref alignment)) return;
+            if (!DA.GetData(1, ref maxSpeed)) return;
+            if (!DA.GetData(2, ref fov)) return;
 
-            BoundingBox bbox = new BoundingBox(box.GetCorners());
+            if (!DA.GetData(3, ref separation)) return;
+            if (!DA.GetData(4, ref cohesion)) return;
+            if (!DA.GetData(5, ref alignment)) return;
+            if (!DA.GetData(6, ref bounds)) return;
+
+            BoundingBox bbox = bounds.Value.Bounds;
             Vector3 min = new Vector3((float)bbox.Min.X, (float)bbox.Min.Y, (float)bbox.Min.Z);
             Vector3 max = new Vector3((float)bbox.Max.X, (float)bbox.Max.Y, (float)bbox.Max.Z);
 
@@ -80,6 +84,9 @@ namespace Baku.Components
                 Agent agent = new Agent(new Vector3((float)point.X, (float)point.Y, (float)point.Z))
                     {
                         BoundingBox = new MBoundingBox(min, max),
+                        BoundaryWeight = bounds.Value.Weight,
+                        BoundaryExponent = bounds.Value.Exponent,
+                        BoundaryRadius = bounds.Value.Range,
                         MaxSpeed = (float)maxSpeed,
                         Fov = (float)fov,
                         SeparationWeight = separation.Value.Weight,
