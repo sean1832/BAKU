@@ -2,15 +2,15 @@
 	
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Title>Baku</Title>
     <Description>High-performance simulation tool suits</Description>
     <TargetExt>.gha</TargetExt>
     <UseWpf>true</UseWpf>
     <LangVersion>latest</LangVersion>
     <PackageProjectUrl>https://github.com/sean1832/baku</PackageProjectUrl>
-    <FileVersion>0.1.0</FileVersion>
-    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <FileVersion>0.1.1</FileVersion>
+    <AssemblyVersion>0.1.1</AssemblyVersion>
   </PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
