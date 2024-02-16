@@ -7,6 +7,8 @@ using BakuCore;
 using BakuCore.Parallel;
 using BakuCore.Types;
 using Grasshopper.Kernel;
+using Grasshopper.Kernel.Types;
+using Grasshopper.Kernel.Utility;
 using Rhino;
 using Rhino.Geometry;
 
@@ -103,9 +105,8 @@ namespace Baku.Components
             Message = GetDeviceName(indexGoo);
 
             
-
-            List<Point3d> ptResults = [];
-            List<Vector3d> velocityResults = [];
+            List<GH_Point> ptResults = [];// direct conversion from List<Point3d> to List<GH_Point> for performance gain
+            List<GH_Vector> velocityResults = [];
 
             if (reset)
             {
@@ -143,8 +144,8 @@ namespace Baku.Components
                 ptResults = new();
                 foreach (Agent lastAgent in _lastAgents)
                 {
-                    ptResults.Add(new Point3d(lastAgent.Position.X, lastAgent.Position.Y, lastAgent.Position.Z));
-                    velocityResults.Add(new Vector3d(lastAgent.Velocity.X, lastAgent.Velocity.Y, lastAgent.Velocity.Z));
+                    ptResults.Add(new GH_Point(new Point3d(lastAgent.Position.X, lastAgent.Position.Y, lastAgent.Position.Z)));
+                    velocityResults.Add(new GH_Vector(new Vector3d(lastAgent.Velocity.X, lastAgent.Velocity.Y, lastAgent.Velocity.Z)));
                 }
             }
 
